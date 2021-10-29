@@ -1,5 +1,11 @@
 'use strict';
 
+/////////////////////////////////// Loading Screen //////////////////////////////////////
+window.addEventListener('load', function () {
+  document.querySelector('.screen-loader').remove();
+  document.querySelector('body').classList.remove('disable-scroll');
+});
+
 //////////////////////////////////// Nav popup //////////////////////////////////////////
 const btnNav = document.querySelector('.nav__hamburger');
 const navMenu = document.querySelector('.nav__menu--mobile');

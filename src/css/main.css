@@ -584,7 +584,7 @@
 }
 
 .box {
-  width: 100px;
+  width: 105px;
   height: 100px;
   display: flex;
   justify-content: center;
@@ -855,6 +855,19 @@ h3 {
 .section-boost .m-heading {
   color: white;
   padding-bottom: 2rem;
+}
+
+.screen-loader {
+  height: 100vh;
+  font-size: 3rem;
+  font-weight: 600;
+}
+.screen-loader__text {
+  padding-right: 2rem;
+}
+
+.disable-scroll {
+  overflow-y: hidden;
 }
 
 /*# sourceMappingURL=main.css.map */
