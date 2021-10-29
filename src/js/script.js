@@ -91,7 +91,7 @@ const renderShortLink = function (originalUrl, shortUrl) {
               Copy
             </button>
             <button class="short-links__link__del-button hidden">
-              <i class="fas fa-times"></i>
+              &#10060;
             </button>
           </div>
         </article>

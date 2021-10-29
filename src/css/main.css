@@ -331,20 +331,21 @@
   padding: 1.5rem 3rem;
   border-radius: 0.8rem;
   position: relative;
+  height: auto;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .short-links__link {
     display: block;
     text-align: center;
   }
 }
 .short-links__link__original-url {
-  max-width: 100%;
+  word-break: break-all;
 }
 .short-links__link__short-url {
   color: #2acfcf;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .short-links__link__short-url {
     display: block;
     padding: 1rem 0;
@@ -374,22 +375,29 @@
 .short-links__link__copy-button--clicked:hover {
   background: #3b3054;
 }
+@media (max-width: 992px) {
+  .short-links__link__copy-button {
+    width: 30%;
+    margin-left: 0;
+  }
+}
 @media (max-width: 768px) {
   .short-links__link__copy-button {
     width: 90%;
   }
 }
 .short-links__link__del-button {
-  background: rgba(255, 30, 0, 0.972);
+  background: #e7250bf8;
   color: white;
   padding: 0;
   height: 3rem;
   width: 3rem;
+  font-weight: 700;
   border-radius: 50%;
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   transform: translate(50%, -50%);
 }
 
