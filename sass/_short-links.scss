@@ -1,0 +1,89 @@
+@use 'variables' as v;
+
+// Short Links Section
+.short-links {
+  background: v.$very-light-color;
+
+  .container {
+    padding-top: 10rem;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    font-weight: 500;
+    background: white;
+    margin-top: 2rem;
+    padding: 1.5rem 3rem;
+    border-radius: 0.8rem;
+    position: relative;
+
+    @media (max-width: v.$breakpoint-md) {
+      display: block;
+      text-align: center;
+    }
+
+    &__original-url {
+      max-width: 100%;
+    }
+    &__short-url {
+      color: v.$primary-color;
+
+      @media (max-width: v.$breakpoint-md) {
+        display: block;
+        padding: 1rem 0;
+      }
+    }
+
+    button {
+      outline: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    &__copy-button {
+      background: v.$primary-color;
+      padding: 0.8rem 2.8rem;
+      color: white;
+      font-size: 1.7rem;
+      border-radius: 0.5rem;
+      margin-left: 2rem;
+      font-weight: 700;
+      transition: background 0.3s;
+
+      &:hover {
+        background-color: rgba(v.$primary-color, 0.5);
+      }
+
+      &--clicked {
+        background: v.$dark-color;
+
+        // Changing the default hover background to dark one
+        &:hover {
+          background: v.$dark-color;
+        }
+      }
+
+      @media (max-width: v.$breakpoint-md) {
+        width: 90%;
+      }
+    }
+
+    &__del-button {
+      background: rgba(255, 30, 0, 0.972);
+      color: white;
+      padding: 0;
+      height: 3rem;
+      width: 3rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 1.5rem;
+      transform: translate(50%, -50%);
+    }
+  }
+}
+
+// End of Short Links Section

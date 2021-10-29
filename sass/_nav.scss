@@ -1,0 +1,164 @@
+@use 'variables' as v;
+
+// Nav
+.nav {
+  height: 13rem;
+  position: relative;
+  z-index: 2;
+  .container {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  &__logo {
+    width: 13.5rem;
+    position: relative;
+    top: 0.4rem;
+  }
+
+  &__hamburger {
+    position: relative;
+    @media (min-width: v.$breakpoint-lg) {
+      display: none;
+    }
+
+    // For hover
+    &::after {
+      content: '';
+      height: 3rem;
+      width: 3rem;
+      position: absolute;
+      left: 0;
+      top: -2rem;
+      cursor: pointer;
+      // background: black;
+    }
+
+    // Hamburgere lines base styles
+    > div {
+      background: v.$light-color;
+      height: 3px;
+      border-radius: 1px;
+      width: 3rem;
+    }
+    div:first-child {
+      position: absolute;
+      top: -1rem;
+    }
+    div:last-child {
+      position: absolute;
+      top: -2rem;
+    }
+  }
+
+  // Mobile nav
+  &__menu--mobile {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1rem;
+    background: v.$dark-color;
+    width: min(85%, 60rem);
+    font-size: 1.9rem;
+    font-weight: 600;
+    text-align: center;
+    height: 40rem;
+    transition: all 0.3s;
+
+    @media (min-width: v.$breakpoint-lg) {
+      display: none;
+    }
+
+    &--hidden {
+      transform: translateX(-50%) scale(0);
+    }
+
+    &__links {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+      padding: 3rem 0;
+      position: relative;
+      height: 60%;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 85%;
+        height: 1px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: v.$light-color;
+      }
+    }
+
+    &__link {
+      color: white;
+      width: 90%;
+      height: auto;
+    }
+
+    &__btns {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 3rem 0;
+      height: 40%;
+    }
+
+    &__btn {
+      color: white;
+      width: 85%;
+
+      &:last-child {
+        background: v.$primary-color;
+        padding: 0.75rem 0;
+        border-radius: 5rem;
+      }
+    }
+  }
+
+  &__menu--desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 3.5rem;
+    width: 100%;
+    @media (max-width: v.$breakpoint-lg) {
+      display: none;
+    }
+
+    &__link,
+    &__btn {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: v.$light-color;
+      transition: color 0.2s;
+      padding: 0 1.3rem;
+
+      &:hover {
+        color: v.$text-color;
+      }
+    }
+
+    .btn--primary {
+      font-size: 1.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 2rem;
+      margin-left: 2rem;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
+// End of Nav

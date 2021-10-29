@@ -1,0 +1,252 @@
+@use 'variables' as v;
+@use 'nav';
+@use 'header';
+@use 'link-form';
+@use 'short-links';
+@use 'statistics';
+@use 'footer';
+@use 'animation';
+
+// Generals
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: v.$text-color;
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+p {
+  color: v.$light-color;
+}
+
+h1,
+h2,
+h3 {
+  color: v.$text-color;
+}
+
+// End of Generals
+
+// Utilities
+.container {
+  margin: 0 auto;
+  max-width: v.$breakpoint-xl;
+  padding: 0 3rem;
+
+  @media (max-width: calc (v.$breakpoint-lg +1px)) {
+    max-width: v.$breakpoint-md;
+  }
+
+  @media (max-width: (v.$breakpoint-md -1px)) {
+    max-width: v.$breakpoint-sm;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.slide-out {
+  transform: translateY(100%);
+}
+
+// Headings
+.l-heading {
+  font-size: 7.8rem;
+  line-height: 1.1;
+  @media (max-width: v.$breakpoint-lg) {
+    font-size: 4.5rem;
+  }
+  @media (max-width: v.$breakpoint-md) {
+    font-size: 4rem;
+  }
+  @media (max-width: 370px) {
+    font-size: 3.5rem;
+  }
+}
+
+.m-heading {
+  font-size: 4rem;
+  line-height: 1.1;
+  @media (max-width: v.$breakpoint-md) {
+    font-size: 3.5rem;
+  }
+  @media (max-width: v.$breakpoint-sm) {
+    font-size: 2.5rem;
+  }
+}
+// End of Headings
+
+// Text
+.text {
+  color: rgba(v.$light-color, 0.85);
+  // opacity: 0.85;
+  line-height: 1.7;
+
+  &-lead {
+    font-size: 2.2rem;
+    font-weight: 500;
+    @media (max-width: v.$breakpoint-lg) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &-sub {
+    font-size: 1.8rem;
+    font-weight: 500;
+    @media (max-width: v.$breakpoint-lg) {
+      font-size: 1.4rem;
+    }
+  }
+}
+// End of Text
+
+// Btns
+.btn {
+  padding: 1rem 4rem;
+  font-size: 2rem;
+  font-weight: 700;
+  border-radius: 5rem;
+  transition: background-color 0.3s;
+
+  @media (max-width: v.$breakpoint-md) {
+    font-size: 1.8rem;
+  }
+
+  &--primary {
+    background: v.$primary-color;
+    color: white;
+
+    &:hover {
+      background-color: rgba(v.$primary-color, 0.65);
+    }
+  }
+}
+// End of Btns
+
+// End of Utilities
+
+// Boost section
+.section-boost {
+  background: url('../img/bg-boost-desktop.svg') no-repeat center / cover;
+  background-color: v.$dark-color;
+  padding: 7rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  .m-heading {
+    color: white;
+    padding-bottom: 2rem;
+  }
+}
+// End of Boost section
+
+// // Short Links Section
+// .short-links {
+//   background: v.$very-light-color;
+
+//   .container {
+//     padding-top: 10rem;
+//   }
+
+//   &__link {
+//     display: flex;
+//     justify-content: space-between;
+//     font-size: 2rem;
+//     font-weight: 500;
+//     background: white;
+//     margin-top: 2rem;
+//     padding: 1.5rem 3rem;
+//     border-radius: 0.8rem;
+//     position: relative;
+
+//     @media (max-width: v.$breakpoint-md) {
+//       display: block;
+//       text-align: center;
+//     }
+
+//     &__del-button {
+//       background: rgba(255, 30, 0, 0.972);
+//       color: white;
+//       padding: 0;
+//       height: 3rem;
+//       width: 3rem;
+//       border-radius: 50%;
+//       position: absolute;
+//       top: 0;
+//       right: 0;
+//       font-size: 1.5rem;
+//       transform: translate(50%, -50%);
+//     }
+
+//     &__original-url {
+//       max-width: 100%;
+//     }
+//     &__short-url {
+//       color: v.$primary-color;
+
+//       @media (max-width: v.$breakpoint-md) {
+//         display: block;
+//         padding: 1rem 0;
+//       }
+//     }
+
+//     button {
+//       outline: none;
+//       border: none;
+//       cursor: pointer;
+//     }
+
+//     &__copy-button {
+//       background: v.$primary-color;
+//       padding: 0.8rem 2.8rem;
+//       color: white;
+//       font-size: 1.7rem;
+//       border-radius: 0.5rem;
+//       margin-left: 2rem;
+
+//       &--clicked {
+//         background: v.$dark-color;
+
+//         // Changing the default hover background to dark one
+//         &:hover {
+//           background: v.$dark-color;
+//         }
+//       }
+
+//       @media (max-width: v.$breakpoint-md) {
+//         width: 90%;
+//       }
+//     }
+//   }
+// }
+
+// // End of Short Links Section

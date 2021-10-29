@@ -1,0 +1,21 @@
+{
+  "name": "shortly",
+  "version": "1.0.0",
+  "description": "link shotener API",
+  "default": "index.html",
+  "scripts": {
+    "sass": "sass -w sass/:./src/css/",
+    "build": "parcel build index.html --public-url ./"
+  },
+  "keywords": [
+    "link",
+    "shortener"
+  ],
+  "author": "ali",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "parcel": "^2.0.0",
+    "sass": "^1.42.1"
+  }
+}

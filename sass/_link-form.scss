@@ -1,0 +1,76 @@
+@use 'variables' as v;
+
+.link-form {
+  background: url('../img/bg-boost-desktop.svg') no-repeat center center / cover;
+  background-color: v.$dark-color;
+  height: 17rem;
+  border-radius: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: v.$breakpoint-md) {
+    flex-direction: column;
+    height: 17rem;
+    padding: 4rem;
+  }
+
+  input,
+  button {
+    border: none;
+    display: block;
+  }
+  input:focus {
+    outline: 3px solid v.$primary-color;
+  }
+
+  .input-error {
+    outline: 3px solid rgba(255, 60, 0, 0.8);
+  }
+
+  &__input {
+    width: 70%;
+    outline: none;
+    height: 6.5rem;
+    border-radius: 1rem;
+    padding: 2.3rem;
+    font-size: 2rem;
+    font-weight: 500;
+    border: none;
+    color: v.$light-color;
+
+    @media (max-width: v.$breakpoint-lg) {
+      width: 60%;
+    }
+    @media (max-width: v.$breakpoint-md) {
+      width: 100%;
+      font-size: 1.8rem;
+      padding: 1.5rem;
+    }
+  }
+
+  .btn {
+    margin-left: 2rem;
+    border-radius: 1rem;
+    height: 6.5rem;
+    cursor: pointer;
+
+    @media (max-width: v.$breakpoint-md) {
+      margin-left: 0;
+      margin-top: 2rem;
+      width: 100%;
+      padding: 1.4rem;
+    }
+  }
+
+  &__error-message {
+    position: absolute;
+    left: 6.5%;
+    bottom: 2.2rem;
+    color: rgb(253, 85, 55);
+    font-size: 1.6rem;
+    width: 100%;
+    font-weight: 600;
+  }
+}
