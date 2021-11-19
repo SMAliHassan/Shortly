@@ -1,6 +1,13 @@
 'use strict';
 
 /////////////////////////////////// Loading Screen //////////////////////////////////////
+
+// ensure that the browser scrolls to the top of the page when the page is refreshed
+history.scrollRestoration = 'manual';
+window.addEventListener('beforeunload', function () {
+  window.scrollTo(0, 0);
+});
+
 window.addEventListener('load', function () {
   document.querySelector('.screen-loader').remove();
   document.querySelector('body').classList.remove('disable-scroll');
