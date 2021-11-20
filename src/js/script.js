@@ -103,8 +103,8 @@ const renderShortLink = function (originalUrl, shortUrl) {
             <button class="short-links__link__copy-button">
               Copy
             </button>
-            <button class="short-links__link__del-button hidden">
-              &#10060;
+            <button class="short-links__link__del-button">
+              <i class="fas fa-times"></i>
             </button>
           </div>
         </article>
@@ -131,26 +131,6 @@ const renderLoader = function (parentEl) {
 const removeLoader = function (parentEl) {
   document.querySelector(`.${parentEl}`).querySelector('.box').remove();
 };
-
-///////////////////////////////////// Cross button on hover ///////////////////////////////
-['mouseover', 'mouseout'].forEach(ev => {
-  shortLinksSection.addEventListener(ev, function (e) {
-    const hoveredLink = e.target.closest('.short-links__link');
-    if (!hoveredLink?.classList.contains('short-links__link')) return;
-
-    if (ev === 'mouseover') {
-      hoveredLink
-        .querySelector('.short-links__link__del-button')
-        .classList.remove('hidden');
-    }
-
-    if (ev === 'mouseout') {
-      hoveredLink
-        .querySelector('.short-links__link__del-button')
-        .classList.add('hidden');
-    }
-  });
-});
 
 //////////////////////// Adding the COPY BUTTON functionality ////////////////////////
 shortLinksSection.addEventListener('click', function (e) {

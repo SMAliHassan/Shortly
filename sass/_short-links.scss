@@ -81,13 +81,21 @@
       padding: 0;
       height: 3rem;
       width: 3rem;
-      font-weight: 700;
       border-radius: 50%;
       position: absolute;
       top: 0;
       right: 0;
-      font-size: 1.3rem;
-      transform: translate(50%, -50%);
+      font-size: 1.5rem;
+      transform: translate(50%, 50%);
+      opacity: 0;
+      transition: all 0.3s;
+    }
+    // Display blok when hover on the parent element(short-links__link)
+    &:hover {
+      .short-links__link__del-button {
+        opacity: 1;
+        transform: translate(50%, -50%);
+      }
     }
   }
 }
