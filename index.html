@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <link
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -148,7 +150,10 @@
           <div class="section-statistics__bar"></div>
 
           <!-- Card 1 -->
-          <article class="section-statistics__card section-statistics__card-1">
+          <article
+            class="section-statistics__card section-statistics__card-1"
+            data-aos="fade-up"
+          >
             <figure class="section-statistics__card__icon-container">
               <img
                 src="./src/img/icon-brand-recognition.svg"
@@ -165,7 +170,10 @@
           </article>
 
           <!-- Card 2 -->
-          <article class="section-statistics__card section-statistics__card-2">
+          <article
+            class="section-statistics__card section-statistics__card-2"
+            data-aos="fade-up"
+          >
             <figure class="section-statistics__card__icon-container">
               <img
                 src="./src/img/icon-detailed-records.svg"
@@ -182,7 +190,10 @@
           </article>
 
           <!-- Card 3 -->
-          <article class="section-statistics__card section-statistics__card-3">
+          <article
+            class="section-statistics__card section-statistics__card-3"
+            data-aos="fade-up"
+          >
             <figure class="section-statistics__card__icon-container">
               <img
                 src="./src/img/icon-fully-customizable.svg"
@@ -258,5 +269,11 @@
         </div>
       </div>
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000, // values from 0 to 3000, with step 50ms
+      });
+    </script>
   </body>
 </html>

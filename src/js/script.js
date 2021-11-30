@@ -1,5 +1,8 @@
 'use strict';
 
+///////////////////////////// INITIALIZE AOS //////////////////////
+// AOS.init();
+
 /////////////////////////////////// Loading Screen //////////////////////////////////////
 
 // ensure that the browser scrolls to the top of the page when the page is refreshed
@@ -21,52 +24,52 @@ btnNav.addEventListener('click', function () {
   navMenu.classList.toggle('nav__menu--mobile--hidden');
 });
 
-///////////////////////////////////// slide in animation///////////////////////////////
+// ///////////////////////////////////// slide in animation///////////////////////////////
 
-const addSlideInAnim = function (parentEl, childElements) {
-  childElements.map(childEl => {
-    const child = document
-      .querySelector(`.${parentEl}`)
-      .querySelector(`.${childEl}`);
+// const addSlideInAnim = function (parentEl, childElements) {
+//   childElements.map(childEl => {
+//     const child = document
+//       .querySelector(`.${parentEl}`)
+//       .querySelector(`.${childEl}`);
 
-    // adding the slide out class
-    child.classList.add('slide-out');
+//     // adding the slide out class
+//     child.classList.add('slide-out');
 
-    // adding transition
-    child.style.transition = 'transform 1s';
-  });
-};
+//     // adding transition
+//     child.style.transition = 'transform 1s';
+//   });
+// };
 
-// Adding the animation on the statistics section elements
-addSlideInAnim('section-statistics', [
-  'm-heading',
-  'text-sub',
-  'section-statistics__bar',
-  'section-statistics__card-1',
-  'section-statistics__card-2',
-  'section-statistics__card-3',
-]);
+// // Adding the animation on the statistics section elements
+// addSlideInAnim('section-statistics', [
+//   'm-heading',
+//   'text-sub',
+//   'section-statistics__bar',
+//   'section-statistics__card-1',
+//   'section-statistics__card-2',
+//   'section-statistics__card-3',
+// ]);
 
-// Adding the animation on the boost section elements
-addSlideInAnim('section-boost', ['m-heading', 'btn--primary']);
+// // Adding the animation on the boost section elements
+// addSlideInAnim('section-boost', ['m-heading', 'btn--primary']);
 
-const displayElement = function ([entry], observer) {
-  if (entry.isIntersecting) entry.target.classList.remove('slide-out');
+// const displayElement = function ([entry], observer) {
+//   if (entry.isIntersecting) entry.target.classList.remove('slide-out');
 
-  if (!entry.target.classList.contains('slide-out'))
-    observer.unobserve(entry.target);
-};
+//   if (!entry.target.classList.contains('slide-out'))
+//     observer.unobserve(entry.target);
+// };
 
-const elementObserver = new IntersectionObserver(displayElement, {
-  root: null,
-  threshold: 0.1,
-});
+// const elementObserver = new IntersectionObserver(displayElement, {
+//   root: null,
+//   threshold: 0.1,
+// });
 
-const slideInElements = document.querySelectorAll('.slide-out');
-slideInElements.forEach(el => {
-  // Adding the observer on the element
-  elementObserver.observe(el);
-});
+// const slideInElements = document.querySelectorAll('.slide-out');
+// slideInElements.forEach(el => {
+//   // Adding the observer on the element
+//   elementObserver.observe(el);
+// });
 
 //////////////////////////////////// SHORTENING THE LINK ////////////////////////////////////
 const API_URL = 'https://api.shrtco.de/v2/';
