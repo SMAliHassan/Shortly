@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <link
       rel="stylesheet"
@@ -140,8 +141,8 @@
     <!-- Statistics section -->
     <section class="section-statistics">
       <div class="container">
-        <h2 class="m-heading">Advanced Statistics</h2>
-        <p class="text text-sub">
+        <h2 class="m-heading" data-aos="fade-up">Advanced Statistics</h2>
+        <p class="text text-sub" data-aos="fade-up">
           Track how your links are performing across the web with our advanced
           statistics dashboard.
         </p>
@@ -217,8 +218,10 @@
     <!-- Section Boost -->
     <section class="section-boost">
       <div class="container">
-        <h2 class="m-heading">Boost your links today</h2>
-        <a href="#" class="btn btn--primary animated">Get Started</a>
+        <h2 class="m-heading" data-aos="fade-up">Boost your links today</h2>
+        <a href="#" class="btn btn--primary animated" data-aos="fade-up"
+          >Get Started</a
+        >
       </div>
     </section>
     <!-- End of Section Boost -->
@@ -269,11 +272,5 @@
         </div>
       </div>
     </footer>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 1000, // values from 0 to 3000, with step 50ms
-      });
-    </script>
   </body>
 </html>

@@ -1,8 +1,5 @@
 'use strict';
 
-///////////////////////////// INITIALIZE AOS //////////////////////
-// AOS.init();
-
 /////////////////////////////////// Loading Screen //////////////////////////////////////
 
 // ensure that the browser scrolls to the top of the page when the page is refreshed
@@ -14,6 +11,12 @@ window.addEventListener('beforeunload', function () {
 window.addEventListener('load', function () {
   document.querySelector('.screen-loader').remove();
   document.querySelector('body').classList.remove('disable-scroll');
+
+  /////// INITIALIZE AOS //////
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
 });
 
 //////////////////////////////////// Nav popup //////////////////////////////////////////
