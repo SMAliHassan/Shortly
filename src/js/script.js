@@ -28,63 +28,27 @@ btnNav.addEventListener('click', function () {
   navMenu.classList.toggle('nav__menu--mobile--hidden');
 });
 
-// ///////////////////////////////////// slide in animation///////////////////////////////
-
-// const addSlideInAnim = function (parentEl, childElements) {
-//   childElements.map(childEl => {
-//     const child = document
-//       .querySelector(`.${parentEl}`)
-//       .querySelector(`.${childEl}`);
-
-//     // adding the slide out class
-//     child.classList.add('slide-out');
-
-//     // adding transition
-//     child.style.transition = 'transform 1s';
-//   });
-// };
-
-// // Adding the animation on the statistics section elements
-// addSlideInAnim('section-statistics', [
-//   'm-heading',
-//   'text-sub',
-//   'section-statistics__bar',
-//   'section-statistics__card-1',
-//   'section-statistics__card-2',
-//   'section-statistics__card-3',
-// ]);
-
-// // Adding the animation on the boost section elements
-// addSlideInAnim('section-boost', ['m-heading', 'btn--primary']);
-
-// const displayElement = function ([entry], observer) {
-//   if (entry.isIntersecting) entry.target.classList.remove('slide-out');
-
-//   if (!entry.target.classList.contains('slide-out'))
-//     observer.unobserve(entry.target);
-// };
-
-// const elementObserver = new IntersectionObserver(displayElement, {
-//   root: null,
-//   threshold: 0.1,
-// });
-
-// const slideInElements = document.querySelectorAll('.slide-out');
-// slideInElements.forEach(el => {
-//   // Adding the observer on the element
-//   elementObserver.observe(el);
-// });
-
 //////////////////////////////////// SHORTENING THE LINK ////////////////////////////////////
 const API_URL = 'https://api.shrtco.de/v2/';
 const linkForm = document.querySelector('.link-form');
 const shortLinksSection = document.querySelector('.short-links');
 
+const timeout = function (s = 10) {
+  return new Promise(function (_, reject) {
+    setTimeout(function () {
+      reject(new Error(`Request took too long! Timeout after ${s} second`));
+    }, s * 1000);
+  });
+};
+
 const shortenLink = async function (url) {
   try {
-    const res = await fetch(`${API_URL}shorten?url=${url}`);
+    const res = await Promise.race([
+      fetch(`${API_URL}shorten?url=${url}`),
+      timeout(),
+    ]);
 
-    if (!res.ok) throw new Error();
+    if (!res.ok) throw new Error('Please enter a valid URL!');
 
     const { result } = await res.json();
 
@@ -202,7 +166,6 @@ const deleteLocalStorage = function (shortUrl) {
 
   // Finding the index of the required object from the array
   const index = data.findIndex(urlObj => {
-    console.log(urlObj);
     return urlObj.shortUrl === shortUrl;
   });
 
@@ -222,7 +185,7 @@ const init = function () {
     renderShortLink(urlObject.originalUrl, urlObject.shortUrl);
   });
 
-  //////////////////////////////// Add even listener on the link-form //////////////////////////
+  /////////////////////////////// Add even listener on the link-form /////////////////////////
   linkForm.addEventListener('submit', async function (e) {
     try {
       e.preventDefault();
@@ -233,7 +196,6 @@ const init = function () {
 
       // Getting the link from the link-form input
       const link = linkForm.querySelector('.link-form__input').value;
-      console.log(link);
 
       // Clear the link from input
       linkForm.querySelector('.link-form__input').value = '';
@@ -252,11 +214,7 @@ const init = function () {
     } catch (err) {
       removeLoader('short-links');
 
-      linkForm.insertAdjacentHTML(
-        'beforeend',
-        '<p class="link-form__error-message">Please enter a valid URL!</p>'
-      );
-      console.log(err);
+      renderError(err.message);
     }
   });
 };
@@ -265,4 +223,11 @@ init();
 ///////////////////////////////// Reset the local storage ///////////////////////////////
 const reset = function () {
   window.localStorage.clear();
+};
+
+const renderError = errMessage => {
+  linkForm.insertAdjacentHTML(
+    'beforeend',
+    `<p class="link-form__error-message">${errMessage}</p>`
+  );
 };
